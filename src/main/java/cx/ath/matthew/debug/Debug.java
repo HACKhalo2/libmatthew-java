@@ -1,8 +1,40 @@
+/* Copyright (C) 1991-2015 Free Software Foundation, Inc.
+   This file is part of the GNU C Library.
+
+   The GNU C Library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public
+   License as published by the Free Software Foundation; either
+   version 2.1 of the License, or (at your option) any later version.
+
+   The GNU C Library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Lesser General Public License for more details.
+
+   You should have received a copy of the GNU Lesser General Public
+   License along with the GNU C Library; if not, see
+   <http://www.gnu.org/licenses/>.  */
+/* This header is separate from features.h so that the compiler can
+   include it implicitly at the start of every compilation.  It must
+   not itself include <features.h> or any other header that includes
+   <features.h> because the implicit include comes before any feature
+   test macros that may be defined in a source file before it first
+   explicitly includes a system header.  GCC knows the name of this
+   header in order to preinclude it.  */
+/* glibc's intent is to support the IEC 559 math functionality, real
+   and complex.  If the GCC (4.9 and later) predefined macros
+   specifying compiler intent are available, use them to determine
+   whether the overall intent is to support these features; otherwise,
+   presume an older compiler has intent to support these features and
+   define these macros by default.  */
+/* wchar_t uses ISO/IEC 10646 (2nd ed., published 2011-03-15) /
+   Unicode 6.0.  */
+/* We do not support C11 <threads.h>.  */
 /*
  * Java Debug Library
  *
  * Copyright (c) Matthew Johnson 2005
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -20,15 +52,12 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
  * To Contact the author, please email src@matthew.ath.cx
  *
  */
-
 package cx.ath.matthew.debug;
-
 import cx.ath.matthew.utils.Hexdump;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -40,7 +69,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
-
 /**
   Add debugging to your program, has support for large projects with multiple
   classes and debug levels per class. Supports optional enabling of debug 
@@ -185,7 +213,6 @@ public class Debug
       }
       return false;
    }
-
    /**
      Output to the given Stream */
    public static void setOutput(PrintStream p) throws IOException
@@ -198,7 +225,6 @@ public class Debug
    {
       debugout = new PrintStream(new FileOutputStream(filename, true));
    }
-
    /**
      Output to the default debug.log */
    public static void setOutput() throws IOException {
@@ -238,7 +264,6 @@ public class Debug
          print(d);
       }
    }
-
    /**
       Log an Object
       @param o The object doing the logging
@@ -293,7 +318,6 @@ public class Debug
          print(loglevel, t);
       }
    }
-
    /**
      Log a Throwable
      @param c The class doing the logging
@@ -337,7 +361,6 @@ public class Debug
          }
       }
    }
-
    /**
      Log a byte array
      @param loglevel The level to log at (DEBUG, WARN, etc)
@@ -455,7 +478,6 @@ public class Debug
          }
       }
    }
-
    /**
      Log a Map
      @param o The object doing the logging

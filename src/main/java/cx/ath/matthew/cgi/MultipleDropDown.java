@@ -37,8 +37,8 @@ import java.util.List;
 /**
  * @author Agent
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
+ *         TODO To change the template for this generated type comment go to
+ *         Window - Preferences - Java - Code Style - Code Templates
  */
 public class MultipleDropDown extends DropDown {
 
@@ -75,7 +75,7 @@ public class MultipleDropDown extends DropDown {
 	 * @param defval
 	 * @param indexed
 	 */
-	public MultipleDropDown(String name, String label, List values,
+	public MultipleDropDown(String name, String label, List<?> values,
 			String defval, boolean indexed) {
 		super(name, label, values, defval, indexed);
 		// TODO Auto-generated constructor stub
@@ -88,28 +88,31 @@ public class MultipleDropDown extends DropDown {
 	 * @param defval
 	 * @param indexed
 	 */
-	public MultipleDropDown(String name, String label, List values, int defval,
+	public MultipleDropDown(String name, String label, List<?> values, int defval,
 			boolean indexed) {
 		super(name, label, values, defval, indexed);
 		// TODO Auto-generated constructor stub
 	}
-	
-	protected String print()
-	   {
-	      String s = "";
-	      s += "<select name='"+name+"' multiple='multiple' size='"+values.length+"'>\n";
-	      for (int i=0; i<values.length; i++) {
-	         if (indexed)
-	            s += "   <option value='"+i+"'";
-	         else
-	            s += "   <option";
-	         if (values[i].equals(defval))
-	            s += " selected='selected'>"+values[i]+"</option>\n";
-	         else
-	            s += ">"+values[i]+"</option>\n";
-	      }
-	      s += "</select>\n";
-	      return s;
-	   }
+
+	@Override
+	protected String print() {
+		String s = "";
+		s += "<select name='" + this.name + "' multiple='multiple' size='"
+				+ this.values.length + "'>\n";
+		for (int i = 0; i < this.values.length; i++) {
+			if (this.indexed) {
+				s += "   <option value='" + i + "'";
+			} else {
+				s += "   <option";
+			}
+			if (this.values[i].equals(this.defval)) {
+				s += " selected='selected'>" + this.values[i] + "</option>\n";
+			} else {
+				s += ">" + this.values[i] + "</option>\n";
+			}
+		}
+		s += "</select>\n";
+		return s;
+	}
 
 }

@@ -31,14 +31,22 @@ import java.io.IOException;
 /**
  * An IO Exception which occurred during UNIX Socket IO
  */
-public class UnixIOException extends IOException
-{
-   private int no;
-   private String message;
-   public UnixIOException(int no, String message)
-   {
-      super(message);
-      this.message = message;
-      this.no = no;
-   }
+public class UnixIOException extends IOException {
+	private static final long serialVersionUID = 4082901167719134291L;
+	private int no;
+	private String message;
+
+	public UnixIOException(int no, String message) {
+		super(message);
+		this.message = message;
+		this.no = no;
+	}
+	
+	public String getMessage() {
+		return this.message;
+	}
+	
+	public int getNo() {
+		return this.no;
+	}
 }

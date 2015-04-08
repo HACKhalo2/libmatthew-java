@@ -25,22 +25,19 @@
  *
  */
 
-
 package cx.ath.matthew.cgi;
 
-public class CheckBox extends Field
-{
-   boolean checked;
-   public CheckBox(String name, String label, boolean checked)
-   {
-      this.name = name;
-      this.label = label;
-      this.checked = checked;
-   }
-   protected String print()
-   {
-      return "<input type='checkbox' name='"+name+"'"+(checked?" checked='checked'":"")+" />";
-   }
+public class CheckBox extends Field {
+	boolean checked;
+
+	public CheckBox(String name, String label, boolean checked) {
+		this.name = name;
+		this.label = label;
+		this.checked = checked;
+	}
+
+	protected String print() {
+		return "<input type='checkbox' name='" + name + "'"
+				+ (checked ? " checked='checked'" : "") + " />";
+	}
 }
-
-

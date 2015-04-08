@@ -27,22 +27,23 @@
 
 package cx.ath.matthew.cgi;
 
-abstract class CGITools
-{
-   /**
-    * Escape a character in a string.
-    * @param in String to escape in.
-    * @param c Character to escape.
-    * @return in with c replaced with \c
-    */
-   public static String escapeChar(String in, char c)
-   {
-      String out = "";
-      for (int i = 0; i < in.length(); i++) {
-         if (in.charAt(i) == c) out += '\\';
-         out += in.charAt(i);
-      }
-      return out;
-   }
+abstract class CGITools {
+	/**
+	 * Escape a character in a string.
+	 * 
+	 * @param in
+	 *            String to escape in.
+	 * @param c
+	 *            Character to escape.
+	 * @return in with c replaced with \c
+	 */
+	public static String escapeChar(String in, char c) {
+		String out = "";
+		for (int i = 0; i < in.length(); i++) {
+			if (in.charAt(i) == c)
+				out += '\\';
+			out += in.charAt(i);
+		}
+		return out;
+	}
 }
-

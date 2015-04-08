@@ -30,12 +30,10 @@ package cx.ath.matthew.cgi;
 /**
  * Interface to handle exceptions in the CGI.
  */
-public interface CGIErrorHandler
-{
-   /**
-    * This is called if an exception is not caught in the CGI.
-    * It should handle printing the error message nicely to the user,
-    * and then exit gracefully.
-    */
-   public void print(boolean headers_sent, Exception e);
+public interface CGIErrorHandler {
+	/**
+	 * This is called if an exception is not caught in the CGI. It should handle
+	 * printing the error message nicely to the user, and then exit gracefully.
+	 */
+	public void print(boolean headers_sent, Exception e);
 }

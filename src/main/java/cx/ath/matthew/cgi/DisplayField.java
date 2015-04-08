@@ -25,22 +25,18 @@
  *
  */
 
-
 package cx.ath.matthew.cgi;
 
-public class DisplayField extends Field
-{
-   String value;
-   public DisplayField(String label, String value)
-   {
-      this.name = "";
-      this.label = label;
-      this.value = value;
-   }
-   protected String print()
-   {
-      return value;
-   }
+public class DisplayField extends Field {
+	String value;
+
+	public DisplayField(String label, String value) {
+		this.name = "";
+		this.label = label;
+		this.value = value;
+	}
+
+	protected String print() {
+		return value;
+	}
 }
-
-

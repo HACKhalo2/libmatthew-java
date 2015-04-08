@@ -25,22 +25,19 @@
  *
  */
 
-
 package cx.ath.matthew.cgi;
 
-public class Radio extends Field
-{
-   boolean checked;
-   public Radio(String name, String label, boolean checked)
-   {
-      this.name = name;
-      this.label = label;
-      this.checked = checked;
-   }
-   protected String print()
-   {
-      return "<input type='radio' name='"+name+"'"+(checked?" checked='checked'":"")+" />";
-   }
+public class Radio extends Field {
+	boolean checked;
+
+	public Radio(String name, String label, boolean checked) {
+		this.name = name;
+		this.label = label;
+		this.checked = checked;
+	}
+
+	protected String print() {
+		return "<input type='radio' name='" + name + "'"
+				+ (checked ? " checked='checked'" : "") + " />";
+	}
 }
-
-

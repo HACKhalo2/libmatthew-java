@@ -35,8 +35,8 @@ package cx.ath.matthew.cgi;
 /**
  * @author Agent
  *
- * TODO To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Style - Code Templates
+ *         TODO To change the template for this generated type comment go to
+ *         Window - Preferences - Java - Code Style - Code Templates
  */
 public class SubmitButton extends Field {
 
@@ -44,11 +44,15 @@ public class SubmitButton extends Field {
 		this.name = name;
 		this.label = label;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see cx.ath.matthew.cgi.Field#print()
 	 */
 	protected String print() {
-		return "<input type='submit' name='"+name+"' value='"+CGITools.escapeChar(label,'\'')+"' />";
+		return "<input type='submit' name='" + name + "' value='"
+				+ CGITools.escapeChar(label, '\'') + "' />";
 	}
 
 }

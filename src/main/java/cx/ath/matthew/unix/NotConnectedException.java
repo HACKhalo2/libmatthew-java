@@ -28,10 +28,10 @@ package cx.ath.matthew.unix;
 
 import java.net.SocketException;
 
-public class NotConnectedException extends SocketException
-{
-   public NotConnectedException()
-   {
-      super("The Socket is Not Connected");
-   }
+public class NotConnectedException extends SocketException {
+	private static final long serialVersionUID = 6607882220669182491L;
+
+	public NotConnectedException() {
+		super("The Socket is Not Connected");
+	}
 }

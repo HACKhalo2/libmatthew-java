@@ -25,22 +25,19 @@
  *
  */
 
-
 package cx.ath.matthew.cgi;
 
-public class HiddenField extends Field
-{
-   String value;
-   public HiddenField(String name, String value)
-   {
-      this.name = name;
-      this.label = "";
-      this.value = value;
-   }
-   protected String print()
-   {
-      return "<input type=\"hidden\" name=\""+name+"\" value=\""+CGITools.escapeChar(value, '"')+"\" />";
-   }
+public class HiddenField extends Field {
+	String value;
+
+	public HiddenField(String name, String value) {
+		this.name = name;
+		this.label = "";
+		this.value = value;
+	}
+
+	protected String print() {
+		return "<input type=\"hidden\" name=\"" + name + "\" value=\""
+				+ CGITools.escapeChar(value, '"') + "\" />";
+	}
 }
-
-

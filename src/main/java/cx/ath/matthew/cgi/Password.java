@@ -25,22 +25,19 @@
  *
  */
 
-
 package cx.ath.matthew.cgi;
 
-public class Password extends Field
-{
-   String defval;
-   public Password(String name, String label, String defval)
-   {
-      this.name = name;
-      this.label = label;
-      this.defval = defval;
-   }
-   protected String print()
-   {
-      return "<input type='password' name='"+name+"' value='"+CGITools.escapeChar(defval, '\'')+"' />";
-   }
+public class Password extends Field {
+	String defval;
+
+	public Password(String name, String label, String defval) {
+		this.name = name;
+		this.label = label;
+		this.defval = defval;
+	}
+
+	protected String print() {
+		return "<input type='password' name='" + name + "' value='"
+				+ CGITools.escapeChar(defval, '\'') + "' />";
+	}
 }
-
-

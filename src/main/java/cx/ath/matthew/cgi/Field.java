@@ -25,14 +25,11 @@
  *
  */
 
-
 package cx.ath.matthew.cgi;
 
-public abstract class Field
-{
-   protected String name;
-   protected String label;
-   protected abstract String print();
+public abstract class Field {
+	protected String name;
+	protected String label;
+
+	protected abstract String print();
 }
-
-

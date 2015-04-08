@@ -10,7 +10,7 @@ CFLAGS+=-Wall -Os -pedantic -Werror
 CSTD?=-std=c99
 CSHAREFLAG+=-fpic -fno-stack-protector
 GCJJNIFLAG=-fjni
-JVERCFLAGS+=-source 1.5
+JVERCFLAGS+=-source 1.8
 JCFLAGS+=
 INCLUDES+=-I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux
 JAVADOCFLAGS?=-quiet -author -link http://java.sun.com/j2se/1.4.2/docs/api/
@@ -36,7 +36,7 @@ CGIVER=0.6
 IOVER=0.1
 HEXVER=0.2
 
-SRC=$(shell find cx -name '*.java' -and -not -name 'Debug.java')
+SRC=$(shell find src/main/java/cx -name '*.java' -and -not -name 'Debug.java')
 
 DEBUG?=disable
 
@@ -89,23 +89,23 @@ libmatthew-java-$(MATTVER).tar.gz: Makefile cx cgi-java.c unix-java.c README INS
 	cp -a $^ libmatthew-java-$(MATTVER)
 	tar zcf $@ libmatthew-java-$(MATTVER)
 
-debug-enable-$(DEBUGVER).jar: cx/ath/matthew/debug/Debug.jpp
+debug-enable-$(DEBUGVER).jar: src/main/java/cx/ath/matthew/debug/Debug.jpp
 	make .enabledebug
 	echo "Class-Path: $(JARDIR)/hexdump.jar" > Manifest
 	(cd classes;jar cfm ../$@ ../Manifest cx/ath/matthew/debug/*.class)
-debug-disable-$(DEBUGVER).jar: cx/ath/matthew/debug/Debug.jpp
+debug-disable-$(DEBUGVER).jar: src/main/java/cx/ath/matthew/debug/Debug.jpp
 	make .disabledebug
 	echo "Class-Path: $(JARDIR)/hexdump.jar" > Manifest
 	(cd classes;jar cfm ../$@ ../Manifest cx/ath/matthew/debug/*.class)
-.enabledebug: cx/ath/matthew/debug/Debug.jpp 
+.enabledebug: src/main/java/cx/ath/matthew/debug/Debug.jpp 
 	mkdir -p classes
-	cpp $(PPFLAGS) $(JPPFLAGS) -DDEBUGSETTING=true < cx/ath/matthew/debug/Debug.jpp > cx/ath/matthew/debug/Debug.java
+	cpp $(PPFLAGS) $(JPPFLAGS) -DDEBUGSETTING=true < src/main/java/cx/ath/matthew/debug/Debug.jpp > cx/ath/matthew/debug/Debug.java
 	$(JAVAC) $(JVERCFLAGS) $(JCFLAGS) -cp classes -d classes cx/ath/matthew/debug/Debug.java cx/ath/matthew/utils/Hexdump.java
 	rm -f .disabledebug
 	touch .enabledebug
 .disabledebug: cx/ath/matthew/debug/Debug.jpp 
 	mkdir -p classes
-	cpp $(PPFLAGS) $(JPPFLAGS) -DDEBUGSETTING=false < cx/ath/matthew/debug/Debug.jpp > cx/ath/matthew/debug/Debug.java
+	cpp $(PPFLAGS) $(JPPFLAGS) -DDEBUGSETTING=false < src/main/java/cx/ath/matthew/debug/Debug.jpp > cx/ath/matthew/debug/Debug.java
 	$(JAVAC) $(JVERCFLAGS) $(JCFLAGS) -cp classes -d classes cx/ath/matthew/debug/Debug.java cx/ath/matthew/utils/Hexdump.java
 	rm -f .enabledebug
 	touch .disabledebug

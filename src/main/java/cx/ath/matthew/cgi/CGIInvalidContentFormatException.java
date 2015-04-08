@@ -30,10 +30,10 @@ package cx.ath.matthew.cgi;
 /**
  * Thrown if both raw and text data are set in the same page.
  */
-public class CGIInvalidContentFormatException extends Exception
-{
-   public CGIInvalidContentFormatException()
-   {
-      super("Cannot send both raw and text data");
-   }
+public class CGIInvalidContentFormatException extends Exception {
+	private static final long serialVersionUID = 6917693459839156708L;
+
+	public CGIInvalidContentFormatException() {
+		super("Cannot send both raw and text data");
+	}
 }

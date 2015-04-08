@@ -30,10 +30,10 @@ package cx.ath.matthew.cgi;
 /**
  * Thrown if the headers have already been sent and CGI.header is called.
  */
-public class CGIHeaderSentException extends Exception
-{
-   public CGIHeaderSentException()
-   {
-      super("Headers already sent by CGI");
-   }
+public class CGIHeaderSentException extends Exception {
+	private static final long serialVersionUID = -4538997546075092939L;
+
+	public CGIHeaderSentException() {
+		super("Headers already sent by CGI");
+	}
 }
